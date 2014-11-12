@@ -40,8 +40,28 @@ Level 42:
 Happy hacking!\n",
 	}
 
-	# XXX: write your code here...
+	# XXX: write your code here...r
 
+        $names = ['john', 'paul', 'ringo', 'george']
+
+        notify { $names: }
+
+        $some_hash = { 
+                        'thing1' =>  { message =>'A thing called one' },
+                        'thing2' =>  { message =>'A thing2 called two'},
+        }
+
+       # apply notify to each resoure in some_hash
+       create_resources(notify, $some_hash)
+
+
+       $primus = ['les', 'ler', 'tim']
+       # "iterate" in ruby
+       $array_out = split(inline_template('<%= names.primus_if {|x| x == "tim" }.join(",") %>'), ',')
+
+        notify { $array_out: }
 }
+
+
 
 # vim: ts=8
