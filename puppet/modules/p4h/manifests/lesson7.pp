@@ -29,7 +29,7 @@ For this lesson, please do the following:
 
 Bonus:
 * Can you think of a security issue involving using facts in your hierarchy ?
-** Hint: it's disclosed in the puppet labs documentation
+** Hint: it's disclosed in the puppet labs documentation.
 
 Level 42:
 * Feel free to try out data-in-modules if you're already proficient at hiera
@@ -39,6 +39,9 @@ Happy hacking!\n",
 	}
 
 	# XXX: write your code here...
+
+        include p4h::hiretest
+
 
 }
 
