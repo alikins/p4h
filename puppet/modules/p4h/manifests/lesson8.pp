@@ -1,3 +1,4 @@
+
 # Puppet for Hackers course module by James
 # Copyright (C) 2013-2014+ James Shubin
 # Written by James Shubin <james@shubin.ca>
@@ -19,32 +20,17 @@
 
 class p4h::lesson8() {
 
-	file { '/root/README':
-		content => "##lesson8
-For this lesson, please do the following:
-* Use the file: ensure => 'directory' type
-** Use the `recurse`, `purge`, and `force` metaparameters
-*** Add some files into the directory with puppet
-**** Remove their definitions and make note of what happens
-* Use an `inline_template` to perform a data transform
-** It could be application of a ruby function
-** It could return an array (which you'll have to parse out)
-* Use the `parseyaml` function with the ruby .to_yaml function in a template
-** Return a more complex data type to puppet
+        file { '/tmp/foobar3/':
+                ensure => directory,
+        }
 
-Bonus:
-* Perform a complex transformation in the template
-* Return a hash
-* Return a hash from an array as input
-
-Level 42:
-* If you're bored, look at the base64 example in the course outline
-** Is this still useful? Why or why not?
-
-Happy hacking!\n",
-	}
-
-	# XXX: write your code here...
+        file { "/tmp/foobar3/blip":
+                ensure  => directory,
+                recurse => true,
+                purge   => true,
+                force   => true,
+                require => File["/tmp/foobar3/"]}
+                #	 XXX: write your code here...
 
 }
 
