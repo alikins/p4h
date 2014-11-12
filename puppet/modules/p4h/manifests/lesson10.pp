@@ -17,6 +17,8 @@
 
 # README: this is a module built for use with: Oh My Vagrant!
 
+import 'common'
+
 class p4h::lesson10() {
 
 	file { '/root/README':
@@ -34,6 +36,12 @@ Happy hacking!\n",
 
 	# XXX: write your code here...
 
+        frag { '/etc/frag.d/':
+                content => 'blipppy fooo'}
+
+        whole {  '/etc/whole':
+                 dir => "/etc/frag.d/"}
 }
+
 
 # vim: ts=8
