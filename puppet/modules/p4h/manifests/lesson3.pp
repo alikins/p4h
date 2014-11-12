@@ -34,6 +34,52 @@ Happy hacking!\n",
 
 	# XXX: write your code here...
 
+        # concat:
+        $faux_list = "blip,blah,baz"
+        $faux_list2 = "blippy, zappy"
+
+        $some_array = split($faux_list, ',')
+        $some_array2 = split($faux_list2, ',')
+
+        $combined = concat($some_array,
+                           $some_array2)
+
+        # count
+        $combined_count = count($combined)
+
+        # delete
+
+        $no_blah = delete($combined, 'blah')
+
+        notify { $no_blah: }
+        # flatten
+
+        $flattened = flatten(['johnson', ['rambis', 'cooper', 'worthy'], 'kareem'])
+
+        notify { $flattened: }
+        # getvar
+
+        $msg = getvar('p4h::init::message')
+
+        notify { $msg: }
+        # has_key
+
+        $my_hash = {'some_key' => 'the value'}
+        #        notify { inline_template("<% @var.inspect %> ") }
+        # join
+
+        $flattened_join = join($flattened, ' --> ')
+        notify { $flattened_join: }
+        # keys
+
+        # member
+
+        # parseyaml
+        # type
+
+        # getvar
+
+        # parseyaml
 }
 
 # vim: ts=8
