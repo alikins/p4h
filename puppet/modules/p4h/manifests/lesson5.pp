@@ -46,6 +46,42 @@ Happy hacking!\n",
 
 	# XXX: write your code here...
 
-}
+       $fact_message = inline_template("<% @an_example_fact %>")
+       notify { 'foo_blip_example_fact':
+                message => $fact_message
+       }
 
-# vim: ts=8
+       file { "/root/this_has_facts.txt":
+           content => $fact_message 
+        }
+       
+        file { "${var}/lib/puppet/tmp/":
+                ensure => directory
+        }
+        
+        file { "${var}/lib/puppet/tmp/lesson5":
+                ensure  => directory,
+                require => File["{var}/lib/puppet/tmp/"]
+        }
+
+        #* Have a type inside your module write small text files to a certain folder
+        file { "${var}/lib/puppet/tmp/lesson5/example_fact_blorp":
+           content => "blorpy blorpy blorpy",
+           ensure  => present,
+           require => File["$var}/lib/puppet/tmp/lesson5"]
+        }
+
+        file { "${var}/lib/puppet/tmp/lesson5/example_fact_zaxxon":
+           content => "zaxxon laser",
+           ensure  => present
+        }
+
+        #*** Have a fact pull in the data from each text file and present it as an array
+
+        #**** The array can be comma separated
+  
+        #***** Remember to run sort before building the fact ... Why?
+        
+        # no idea..  does it effect precendence?
+        #****** Do not reuse variables inside the fact ... Why?
+}
