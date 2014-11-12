@@ -12,6 +12,15 @@
 :cachier: false
 :vms:
 - :name: lesson1
+- :name: lesson2
+- :name: lesson3
+- :name: lesson4
+- :name: lesson5
+- :name: lesson6
+- :name: lesson7
+- :name: lesson8
+- :name: lesson10
+- :name: lesson12
 :namespace: p4h
 :count: 0
 :username: ''
