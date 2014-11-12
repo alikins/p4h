@@ -37,7 +37,39 @@ Bonus:
 Happy hacking!\n",
 	}
 
-	# XXX: write your code here...
+        notice("gh1")
+        notify { "gh1": }
+
+        $tmpl_string = "blah blah blah <% @hostname %>"
+
+        $tmpl_res = inline_template($tmpl_string)
+
+        notice(" The string tmpl becamse ${tmpl_res}")
+	# XXX: write your code here..
+
+        # regsubst
+        # target, regex, replacement, flags,encoding .
+
+        $start_txt = "This is a thing that refers on blahblah."
+        $orig_sha = sha1($start_txt)
+        $new_text = regsubst($start_txt, '.*blahblah\.', "blipblip.", 'G')
+        $new_sha = sha1($new_txt)
+
+        $faux_list = "blip,blah,foo,baz,zab,zif"
+
+        $faux_split_list = split($faux_list, ',')
+
+        notify { $faux_split_list: }
+        notice($faux_split_list)
+
+        $formatted_string = sprintf("%d %d", 37, 42)
+
+        notice($formatted_string)
+
+
+        $bash_args = shellquoute("/bin/ls", " ", "-lart")
+
+        notify { $bash_args: }
 
 }
 
