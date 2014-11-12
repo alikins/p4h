@@ -42,6 +42,28 @@ Happy hacking!\n",
 
 	# XXX: write your code here...
 
+        # fact exchange?
+
+        # can we write out the info on the node
+        # as a side effect of fact collection?
+
+          # system keys?
+          # shared secrets for hmacs etc?
+          # (ignoring oddity of transporting secrets)
+          # shard ids? container instance ids?
+
+        # create a custom fact 
+        # decide on a place to share it
+        # generate something unique
+        #  verify it's unique
+        #  store it
+
+        # some period of time goes buy
+        #  were rootish, in root owned dirs, but
+        #  also potentially predictable, careful with values
+        #  canonicalize id's
+
+        # veirfy fact values
 }
 
 # vim: ts=8
